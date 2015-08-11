@@ -1,0 +1,35 @@
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+.greyHover {
+	background-color: #d3d3d3;
+}
+
+.greyCheck {
+	background-color: #d3d3d3;
+}
+
+.blueHover {
+	background-color: #E1ECF5;
+}
+
+.sortorder:after {
+	content: "<";
+}
+
+.sortorder.reverse:after {
+	content: ">";
+}
+
+.A {
+	color: green;
+}
+
+@each $letter,$color in (A,green), (B,gold), (C,orange), (D,chocolate), (F, red) {
+  .#{$letter} {
+    color: $color;
+  }
+}
+

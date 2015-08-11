@@ -1,0 +1,38 @@
+<table>
+    <thead>
+    	<th></th>
+        <th>
+        	<a href="" ng-click="order('score')" ng-mouseenter="scoreHover=true" ng-mouseleave="scoreHover=false">SCORE</a>
+        	<span class="sortorder" ng-show="type === 'score'" ng-class="{reverse:reverseType}"></span>
+        </th>
+        <th>
+        	<a href="" ng-click="order('percentile')" ng-mouseenter="percentileHover=true" ng-mouseleave="percentileHover=false">PERCENTILE</a>
+        	<span class="sortorder" ng-show="type === 'percentile'" ng-class="{reverse:reverseType}"></span>
+        </th>
+        <th>
+        	<a href="" ng-click="order('change')" ng-mouseenter="changeHover=true" ng-mouseleave="changeHover=false">30-DAY</a>
+        	<span class="sortorder" ng-show="type === 'change'" ng-class="{reverse:reverseType}"></span>
+        </th>
+        <th>
+        	<a href="" ng-click="order('name')" ng-mouseenter="vendorHover=true" ng-mouseleave="vendorHover=false">VENDOR</a>
+        	<span class="sortorder" ng-show="type === 'name'" ng-class="{reverse:reverseType}"></span>
+        </th>
+        <th>
+        	<a href="" ng-click="order('industry')" ng-mouseenter="industryHover=true" ng-mouseleave="industryHover=false">INDUSTRY</a>
+        	<span class="sortorder" ng-show="type === 'industry'" ng-class="{reverse:reverseType}"></span>
+        </th>
+    </thead>
+    <tbody>
+        <tr ng-repeat="vendor in vendorArray | orderBy:type:reverseType" 
+        	ng-class="{greyHover:hover || vendor.checked}" 
+        	ng-mouseenter="hover=true" 
+        	ng-mouseleave="hover=false">
+        	<td><input type="checkbox" ng-model="vendor.checked" ng-click="updateCheckbox(vendor)"></td>
+        	<td ng-class="{blueHover:scoreHover}" grade-color >{{vendor.score}}</td>
+        	<td ng-class="{blueHover:percentileHover}">{{vendor.percentile}}</td>
+        	<td ng-class="{blueHover:changeHover}">{{vendor.change}}</td>
+        	<td ng-class="{blueHover:vendorHover}">{{vendor.name}}</td>
+        	<td ng-class="{blueHover:industryHover}">{{vendor.industry}}</td>
+        </tr>
+    </tbody>
+</table>
