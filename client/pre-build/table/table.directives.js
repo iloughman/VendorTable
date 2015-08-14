@@ -6,13 +6,7 @@ app.directive('scoreColor', function(){
 
 			var colorClass = scope.vendor.score;
 
-			element.addClass(colorClass)
-
-			// scope.$watch('vendor.score', function(value, oldValue){
-			// 	console.log('new',value)
-			// 	console.log('old', oldValue)
-			// 	element.css('color', colors[value]);
-			// });
+			element.addClass(colorClass);
 		}
 	};
 });
@@ -37,16 +31,6 @@ app.directive('changeColor', function(){
 				scope.vendor.change < 0 ? (scope.vendor.change)+"%" : scope.vendor.change));
 
 			element.addClass(colorClass)
-
-			// var colors = {'positiveChange':'green', 'negativeChange':'darkred','noChange':'grey'}
-
-			// scope.$watch('vendor.change', function(value ,oldValue){
-			// 	console.log('old',oldValue);
-			// 	console.log('new', value);
-			// 	element.text(scope.vendor.change > 0 ? "+"+(scope.vendor.change)+"%" : (
-			// 		scope.vendor.change < 0 ? (scope.vendor.change)+"%" : scope.vendor.change));
-			// 	element.css('color', colors[colorClass])
-			// });
 		}
 	};
 });
