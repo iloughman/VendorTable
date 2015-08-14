@@ -6,7 +6,6 @@ var concat = require('gulp-concat');
 var runSeq = require('run-sequence');
 var sass = require('gulp-sass');
 var rename = require('gulp-rename');
-var mocha = require('gulp-mocha');
 var babel = require('gulp-babel');
 
 
