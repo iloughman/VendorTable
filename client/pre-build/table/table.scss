@@ -1,34 +1,118 @@
+$neonGreen: #49fb35;
+$lightGrey: #F5F5F5;
+$lightBlue: #E1ECF5;
+
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+	font-family: Times;
+	font-size: 14px;
+}
+
 a {
 	text-decoration: none;
 	color: inherit;
+	text-align: center;
+	padding: 0px 5px;
+	font-size: 12px;
+	color: grey;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+tr {
+	border-bottom: 1pt solid #d3d3d3;
+	text-align: left;
+}
+
+td {
+	padding: 5px;
+	text-align: left;
+}
+
+
+th {
+	margin: 20px 20px;
+	text-align: center;
+}
+
+input[type=checkbox]{
+	position:absolute; 
+	z-index:-1000; 
+	left:-1000px; 
+	overflow: hidden; 
+	height:1px; 
+	width:1px; 
+	margin:1px; 
+	padding:0; 
+	border:0;
+}
+
+input[type=checkbox] + label{
+	padding-left:23px;
+	height:18px; 
+	display:inline-block;
+	line-height:18px;
+	background-repeat:no-repeat;
+	background-position: 0 0;
+	font-size:18px;
+	vertical-align:middle;
+	cursor:pointer;
+
+}
+
+input[type=checkbox]:checked + label {
+	background-position: 0 -18px;
+}
+
+label{
+	background-image:url(http://csscheckbox.com/checkboxes/u/csscheckbox_7fcfdd1e7db19a3977b16c26d772ea35.png);
+	background-size: 19px;
+}
+
+.score, .percentile, .change {
+	text-align: center;
 }
 
 .greyHover {
-	background-color: #d3d3d3;
+	background-color: $lightGrey;
 }
 
 .greyCheck {
-	background-color: #d3d3d3;
+	background-color: $lightGrey;
 }
 
 .blueHover {
-	background-color: #E1ECF5;
+	background-color: $lightBlue;
 }
 
 .sortorder:after {
-	content: "<";
+	content: "\1401";
+	font-weight: 100;
+	color: grey;
+	text-align: center;
 }
 
 .sortorder.reverse:after {
-	content: ">";
+	content: "\1403";
+	font-weight: 100;
+	text-align: center;
+	color: grey;
 }
 
-.A {
-	color: green;
-}
-
-@each $letter,$color in (A,green), (B,gold), (C,orange), (D,chocolate), (F, red) {
+@each $letter,$color in (A,$neonGreen), (B,gold), (C,orange), (D,chocolate), (F, red) {
   .#{$letter} {
+    color: $color;
+  }
+}
+
+@each $changeType,$color in (positiveChange,green), (negativeChange,darkred), (noChange,grey){
+  .#{$changeType} {
     color: $color;
   }
 }

@@ -1,6 +1,8 @@
 app.controller('TableCtrl', function($scope, $http, vendorData) {
 	$scope.vendorArray = vendorData.vendors;
 	$scope.vendorArray.forEach(function(vendor){
+		vendor.percentile = +vendor.percentile;
+		vendor.change = +vendor.change;
 		vendor.checked = false;
 	});
 	$scope.hover = false;
@@ -16,17 +18,11 @@ app.controller('TableCtrl', function($scope, $http, vendorData) {
 	};
 
 	$scope.order = function(type){
-		$scope.reverseType = ($scope.type === type) ? !$scope.reverseType : false;
-		$scope.type = type;
-	};
-});
-
-app.directive('gradeColor', function(){
-	return {
-		restrict: 'A',
-		link: function(scope, element, attr){
-			console.log(scope.vendor.score)
-			element.addClass(scope.vendor.score);
+		$scope.reverseType = ($scope.type === type || $scope.type === '-'+type) ? !$scope.reverseType : false;
+		if (type === 'change' || type === 'percentile'){
+			$scope.type = '-'+type;
+		} else {	
+			$scope.type = type;
 		}
 	};
 });
